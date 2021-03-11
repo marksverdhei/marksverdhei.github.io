@@ -22,10 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const sections = [
-  { title: 'About Me', url: '#' },
-  { title: 'Portfolio', url: '#' },
-];
+const sections = [];
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',
