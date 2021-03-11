@@ -25,29 +25,28 @@ const useStyles = makeStyles((theme) => ({
 const sections = [];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'picardia.png',
+  title: 'Welcome to my personal website',
+  // description:"Most recent project",
+  // image: 'recent_project.jpg',
   imgText: 'main image description',
-  linkText: 'Continue reading…',
+  // linkText: 'Continue reading…',
 };
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'About me',
+    date: '',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'tord.png',
+      'I am a Machine Learning enthusiast currently pursuing a masters degree at the University of Oslo ... ',
+    image: 'portrait.jpg',
     imageText: 'Image Text',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Portfolio',
+    date: '',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'picardia.png',
+      'Click here to view all my published projects',
+    image: 'projects.jpg',
     imageText: 'Image Text',
   },
 ];
@@ -64,8 +63,8 @@ const sidebar = {
     { title: 'March 2020', url: '#' },
   ],
   social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'LinkedIn', icon: FacebookIcon },
+    { name: 'GitHub', url:'https://github.com/marksverdhei', icon: GitHubIcon },
+    { name: 'LinkedIn', url:'https://www.linkedin.com/in/markus-heiervang/', icon: FacebookIcon },
   ],
 };
 
@@ -85,7 +84,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="Latest posts" posts={posts} />
+            <Main title="Blog" posts={posts} />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
