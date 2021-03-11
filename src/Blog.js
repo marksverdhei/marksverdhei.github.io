@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 const sections = [];
 
 const mainFeaturedPost = {
-  title: 'Welcome to my personal website',
-  // description:"Most recent project",
+    title: 'Welcome',
+    description:"to my personal website",
   // image: 'recent_project.jpg',
   imgText: 'main image description',
   // linkText: 'Continue reading…',
@@ -39,6 +39,7 @@ const featuredPosts = [
       'I am a Machine Learning enthusiast currently pursuing a masters degree at the University of Oslo ... ',
     image: 'portrait.jpg',
     imageText: 'Image Text',
+    url:'https://www.linkedin.com/in/markus-heiervang/'
   },
   {
     title: 'Portfolio',
@@ -47,6 +48,7 @@ const featuredPosts = [
       'Click here to view all my published projects',
     image: 'projects.jpg',
     imageText: 'Image Text',
+    url: 'https://github.com/marksverdhei'
   },
 ];
 
