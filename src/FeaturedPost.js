@@ -23,16 +23,14 @@ const useStyles = makeStyles({
 });
 
 export default function FeaturedPost(props) {
-  const context = React.useContext(GlobalContext)
+  const { selectedContent, selectContent } = React.useContext(GlobalContext)
   const classes = useStyles();
   const { post } = props;
 
   return (
     <Grid item xs={12} md={6}>
       <CardActionArea component="a" onClick={() => {
-        console.log(context.currentPage)
-        context.currentPage = post.page
-        console.log(context.currentPage)
+          selectContent(post.page)
       }}>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>

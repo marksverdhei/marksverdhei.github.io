@@ -1,7 +1,5 @@
 import React from 'react'
 
-const GlobalContext = React.createContext({
-    currentPage: "main"
-})
+const GlobalContext = React.createContext()
 
 export default GlobalContext

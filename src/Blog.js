@@ -1,17 +1,17 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Feed from './Feed';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
-import post1 from './posts/blog-post.1.md';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import Header from './Header'
+import MainFeaturedPost from './MainFeaturedPost'
+import FeaturedPost from './FeaturedPost'
+import Feed from './Feed'
+import Sidebar from './Sidebar'
+import Footer from './Footer'
+import post1 from './posts/blog-post.1.md'
 import BasePage from './BasePage'
 import GlobalContext from './GlobalContext'
 
@@ -20,7 +20,7 @@ const mainFeaturedPost = {
     description:"to my personal website",
     // image: 'recent_project.jpg',
     imgText: 'main image description',
-};
+}
 
 const featuredPosts = [
   {
@@ -43,11 +43,11 @@ const featuredPosts = [
     url: '/portfolio',
     page: 'portfolio'
   },
-];
+]
 
 const posts = [
     post1,
-];
+]
 
 const sidebar = {
   title: 'Useless sidebar',
@@ -58,18 +58,18 @@ const sidebar = {
   ],
   social: [
     { name: 'GitHub', url:'https://github.com/marksverdhei', icon: GitHubIcon },
-    { name: 'LinkedIn', url:'https://www.linkedin.com/in/markus-heiervang/', icon: FacebookIcon },
+    { name: 'LinkedIn', url:'https://www.linkedin.com/in/markus-heiervang/', icon: LinkedInIcon },
   ],
-};
+}
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
-}));
+}))
 
 
-function selectContent(page) {
+function selectContentComponent(page) {
   switch (page) {
     case "about":
       return (<Feed title="About" posts={[]} />)
@@ -83,12 +83,15 @@ function selectContent(page) {
 }
 
 export default function Blog() {
-  const context = React.useContext(GlobalContext)
-
+  const [selectedContent, selectContent] = React.useState("main")
   const classes = useStyles()
-
+  const contextValue = {
+    selectedContent: selectContent,
+    selectContent: selectContent
+  }
   return (
     <BasePage>
+      <GlobalContext.Provider value={contextValue}>
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -97,7 +100,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            {selectContent(context.currentPage)}
+            {selectContentComponent(selectedContent)}
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
@@ -106,6 +109,7 @@ export default function Blog() {
             />
           </Grid>
         </main>
+      </GlobalContext.Provider>
     </BasePage>
-  );
+  )
 }
