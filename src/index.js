@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Blog from './Blog';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import reportWebVitals from './reportWebVitals'
+import Main from './Main'
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Blog />
-  </React.StrictMode>,
+  <Main/>,
   document.getElementById('root')
 );
 

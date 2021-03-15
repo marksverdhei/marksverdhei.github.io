@@ -8,27 +8,18 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Main from './Main';
+import Feed from './Feed';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import post1 from './posts/blog-post.1.md.js';
-// import post2 from './blog-post.2.md';
-// import post3 from './blog-post.3.md';
-
-const useStyles = makeStyles((theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(3),
-  },
-}));
-
-const sections = [];
+import post1 from './posts/blog-post.1.md';
+import BasePage from './BasePage'
+import GlobalContext from './GlobalContext'
 
 const mainFeaturedPost = {
     title: 'Welcome',
     description:"to my personal website",
-  // image: 'recent_project.jpg',
-  imgText: 'main image description',
-  // linkText: 'Continue reading…',
+    // image: 'recent_project.jpg',
+    imgText: 'main image description',
 };
 
 const featuredPosts = [
@@ -39,7 +30,8 @@ const featuredPosts = [
       'I am a Machine Learning enthusiast currently pursuing a masters degree at the University of Oslo ... ',
     image: 'portrait.jpg',
     imageText: 'Image Text',
-    url:'https://www.linkedin.com/in/markus-heiervang/'
+    url: '/about',
+    page: 'about'
   },
   {
     title: 'Portfolio',
@@ -48,7 +40,8 @@ const featuredPosts = [
       'Click here to view all my published projects',
     image: 'projects.jpg',
     imageText: 'Image Text',
-    url: 'https://github.com/marksverdhei'
+    url: '/portfolio',
+    page: 'portfolio'
   },
 ];
 
@@ -69,14 +62,33 @@ const sidebar = {
   ],
 };
 
+const useStyles = makeStyles((theme) => ({
+  mainGrid: {
+    marginTop: theme.spacing(3),
+  },
+}));
+
+
+function selectContent(page) {
+  switch (page) {
+    case "about":
+      return (<Feed title="About" posts={[]} />)
+
+    case "portfolio":
+      return (<Feed title="portfolio" posts={[]} />)
+
+    default:
+      return (<Feed title="Blog" posts={posts} />)
+  }
+}
+
 export default function Blog() {
-  const classes = useStyles();
+  const context = React.useContext(GlobalContext)
+
+  const classes = useStyles()
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Header title="Markus Heiervang" sections={sections} />
+    <BasePage>
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -85,7 +97,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="Blog" posts={posts} />
+            {selectContent(context.currentPage)}
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
@@ -94,8 +106,6 @@ export default function Blog() {
             />
           </Grid>
         </main>
-      </Container>
-      <Footer title="What should I put here?" description="I have no clue!" />
-    </React.Fragment>
+    </BasePage>
   );
 }

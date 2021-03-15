@@ -40,20 +40,7 @@ export default function Header(props) {
           {title}
         </Typography>
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar>
+      <ul></ul>
     </React.Fragment>
   );
 }

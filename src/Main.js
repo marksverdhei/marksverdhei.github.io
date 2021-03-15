@@ -1,38 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import Markdown from './Markdown';
+import React from 'react'
+import Blog from './Blog'
+import reportWebVitals from './reportWebVitals'
+import BasePage from './BasePage'
+import AboutPage from './AboutPage'
+import PortfolioPage from './PortfolioPage'
+import GlobalContext from './GlobalContext'
+import Fade from '@material-ui/core/Fade';
 
-const useStyles = makeStyles((theme) => ({
-  markdown: {
-    ...theme.typography.body2,
-    padding: theme.spacing(3, 0),
-  },
-}));
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-export default function Main(props) {
-  const classes = useStyles();
-  const { posts, title } = props;
 
-  return (
-    <Grid item xs={12} md={8}>
-      <Typography variant="h6" gutterBottom>
-        {title}
-      </Typography>
-      <Divider />
-      {posts?.map((post) => (
-        <Markdown className={classes.markdown} key={post.substring(0, 40)}>
-          {post}
-        </Markdown>
-      ))}
-    </Grid>
-  );
+export default function Main() {
+    const context = React.useContext(GlobalContext)
+    return (
+      <React.StrictMode>
+        <Router>
+          <Switch>
+            <Route path="/about">
+
+              <AboutPage/>
+            </Route>
+            <Route path="/portfolio">
+              <PortfolioPage/>
+            </Route>
+            <Fade>
+            <Route path="/">
+              <Blog />
+            </Route>
+            </Fade>
+          </Switch>
+        </Router>
+      </React.StrictMode>
+    )
 }
-
-Main.propTypes = {
-  posts: PropTypes.array,
-  title: PropTypes.string,
-};
