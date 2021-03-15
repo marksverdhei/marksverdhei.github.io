@@ -14,7 +14,7 @@ import GlobalContext from './GlobalContext'
 const mainFeaturedPost = {
     title: 'Welcome',
     description:"to my personal website",
-    // image: 'recent_project.jpg',
+    image: 'earth.jpg',
     imgText: 'main image description',
 }
 
@@ -23,8 +23,8 @@ const mainCards = {
     title: 'Blog',
     date: '',
     description:
-      'What will I say?',
-    image: 'portrait.jpg',
+      'The place where I share and discuss things I have recently learned',
+    image: 'blog.png',
     imageText: 'Portrait',
     page: 'main'
   },
@@ -41,7 +41,7 @@ const mainCards = {
     title: 'Portfolio',
     date: '',
     description:
-      'Click here to view all my published projects',
+      'Click here to view all my published projects, code and more!',
     image: 'projects.jpg',
     imageText: 'Code',
     page: 'portfolio'
