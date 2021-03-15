@@ -1,15 +1,18 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+
 import Grid from '@material-ui/core/Grid'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import MainFeaturedPost from './MainFeaturedPost'
 import FeaturedPost from './FeaturedPost'
+import BasePage from './BasePage'
 import Feed from './Feed'
+import ProjectFeed from './ProjectFeed'
 import Sidebar from './Sidebar'
 import post1 from './posts/blog-post.1.md'
-import BasePage from './BasePage'
 import GlobalContext from './GlobalContext'
+
 
 const mainFeaturedPost = {
     title: 'Welcome',
@@ -78,7 +81,7 @@ function selectContentComponent(page) {
       return (<Feed title="About" posts={[]} />)
 
     case "portfolio":
-      return (<Feed title="Portfolio" posts={[]} />)
+      return (<ProjectFeed title="Portfolio" posts={[]} />)
 
     default:
       return (<Feed title="Blog" posts={posts} />)

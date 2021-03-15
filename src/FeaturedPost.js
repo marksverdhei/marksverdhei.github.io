@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   cardMedia: {
     width: 160,
   },
-});
+})
 
 export default function FeaturedPost(props) {
   const { selectContent } = React.useContext(GlobalContext)
