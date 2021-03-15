@@ -1,7 +1,6 @@
 import React from 'react'
 import FrontPage from './FrontPage'
-import AboutPage from './AboutPage'
-import PortfolioPage from './PortfolioPage'
+import BioinformaticsPage from './BioinformaticsPage'
 import Fade from '@material-ui/core/Fade';
 
 import {
@@ -16,6 +15,9 @@ export default function Main() {
       <React.StrictMode>
         <BrowserRouter>
           <Switch>
+            <Route path="/bioinformatics">
+              <BioinformaticsPage />
+            </Route>
             <Route path="/">
               <FrontPage />
             </Route>
