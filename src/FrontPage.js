@@ -18,28 +18,35 @@ const mainFeaturedPost = {
     imgText: 'main image description',
 }
 
-const featuredPosts = [
-  {
-    title: 'About me',
+const mainCards = {
+  main: {
+    title: 'Blog',
     date: '',
     description:
-      'I am a Machine Learning enthusiast currently pursuing a masters degree at the University of Oslo ... ',
+      'What will I say?',
     image: 'portrait.jpg',
-    imageText: 'Image Text',
-    url: '/about',
-    page: 'about'
+    imageText: 'Portrait',
+    page: 'main'
   },
-  {
+  about: {
+      title: 'About me',
+      date: '',
+      description:
+        'I am a Machine Learning enthusiast currently pursuing a masters degree at the University of Oslo ... ',
+      image: 'portrait.jpg',
+      imageText: 'Portrait',
+      page: 'about'
+  },
+  portfolio: {
     title: 'Portfolio',
     date: '',
     description:
       'Click here to view all my published projects',
     image: 'projects.jpg',
-    imageText: 'Image Text',
-    url: '/portfolio',
+    imageText: 'Code',
     page: 'portfolio'
-  },
-]
+  }
+}
 
 const posts = [
     post1,
@@ -71,15 +78,20 @@ function selectContentComponent(page) {
       return (<Feed title="About" posts={[]} />)
 
     case "portfolio":
-      return (<Feed title="portfolio" posts={[]} />)
+      return (<Feed title="Portfolio" posts={[]} />)
 
     default:
       return (<Feed title="Blog" posts={posts} />)
   }
 }
 
-export default function Blog() {
+export default function FrontPage() {
   const [selectedContent, selectContent] = React.useState("main")
+  // const [featuredPosts, setFeaturedPosts] = React.useState([])
+  const featuredPosts = Object.keys(mainCards)
+                              .filter(e => e !== selectedContent)
+                              .map(e => mainCards[e])
+
   const classes = useStyles()
   const contextValue = {
     selectedContent: selectContent,

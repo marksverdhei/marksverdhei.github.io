@@ -1,5 +1,5 @@
 import React from 'react'
-import Blog from './Blog'
+import FrontPage from './FrontPage'
 import AboutPage from './AboutPage'
 import PortfolioPage from './PortfolioPage'
 import Fade from '@material-ui/core/Fade';
@@ -25,7 +25,7 @@ export default function Main() {
             </Route>
             <Fade>
             <Route path="/">
-              <Blog />
+              <FrontPage />
             </Route>
             </Fade>
           </Switch>
