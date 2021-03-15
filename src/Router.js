@@ -1,7 +1,7 @@
 import React from 'react'
 import FrontPage from './FrontPage'
 import BioinformaticsPage from './BioinformaticsPage'
-import Fade from '@material-ui/core/Fade';
+import Fade from '@material-ui/core/Fade'
 
 import {
   BrowserRouter,
