@@ -5,7 +5,7 @@ import PortfolioPage from './PortfolioPage'
 import Fade from '@material-ui/core/Fade';
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
@@ -14,22 +14,13 @@ import {
 export default function Main() {
     return (
       <React.StrictMode>
-        <Router>
+        <BrowserRouter>
           <Switch>
-            <Route path="/about">
-
-              <AboutPage/>
-            </Route>
-            <Route path="/portfolio">
-              <PortfolioPage/>
-            </Route>
-            <Fade>
             <Route path="/">
               <FrontPage />
             </Route>
-            </Fade>
           </Switch>
-        </Router>
+        </BrowserRouter>
       </React.StrictMode>
     )
 }
