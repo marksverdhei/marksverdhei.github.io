@@ -53,7 +53,7 @@ const posts = [
 ]
 
 const sidebar = {
-  title: 'Useless sidebar',
+  title: 'Links',
   description:
     "This is a sidebar that I dont know if i'll ever use",
   archives: [
