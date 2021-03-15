@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title } = props;
+  const { title } = props;
 
   return (
     <React.Fragment>
@@ -46,6 +45,5 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  sections: PropTypes.array,
   title: PropTypes.string,
 };

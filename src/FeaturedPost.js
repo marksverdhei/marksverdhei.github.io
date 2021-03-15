@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 });
 
 export default function FeaturedPost(props) {
-  const { selectedContent, selectContent } = React.useContext(GlobalContext)
+  const { selectContent } = React.useContext(GlobalContext)
   const classes = useStyles();
   const { post } = props;
 
