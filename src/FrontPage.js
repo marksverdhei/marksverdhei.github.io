@@ -10,9 +10,11 @@ import BasePage from './BasePage'
 import Feed from './Feed'
 import ProjectFeed from './ProjectFeed'
 import Sidebar from './Sidebar'
+import bio from './posts/aboutme.md.js'
 import post1 from './posts/blog-post.1.md'
 import GlobalContext from './GlobalContext'
 
+import AboutFeed from './AboutFeed'
 
 const mainFeaturedPost = {
     title: 'Welcome',
@@ -51,10 +53,6 @@ const mainCards = {
   }
 }
 
-const posts = [
-    post1,
-]
-
 const sidebar = {
   title: 'Links',
   description:
@@ -78,13 +76,11 @@ const useStyles = makeStyles((theme) => ({
 function selectContentComponent(page) {
   switch (page) {
     case "about":
-      return (<Feed title="About" posts={[]} />)
-
+      return (<AboutFeed />)
     case "portfolio":
       return (<ProjectFeed title="Portfolio" posts={[]} />)
-
     default:
-      return (<Feed title="Blog" posts={posts} />)
+      return (<Feed title="Blog" posts={[post1]} />)
   }
 }
 

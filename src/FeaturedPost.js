@@ -29,9 +29,7 @@ export default function FeaturedPost(props) {
 
   return (
     <Grid item xs={12} md={6}>
-      <CardActionArea component="a" onClick={() => {
-          selectContent(post.page)
-      }}>
+      <CardActionArea component="a" onClick={() => selectContent(post.page)}>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
