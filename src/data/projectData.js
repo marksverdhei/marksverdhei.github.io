@@ -1,11 +1,12 @@
 const projectData = [
   {
-    title: "Bio-Diff",
+    title: "Bio-Diff (Coming soon!)",
     subtext: "bioinformatics",
     img: "dna.png",
     description: `Application for performing dna- and protein sequence alignments
                   using the smith-waterman algorithm and dynamic programming (work in progress)`,
-    link: "/bioinformatics"
+    // link: "/bioinformatics",
+    disabled: true
   },
   {
     title: "Explainable Machine Learning",

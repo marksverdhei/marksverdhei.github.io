@@ -48,8 +48,12 @@ export default function ProjectFeed(props) {
       {
         projectData.map(p => (
           <ListItem>
-            <CardActionArea component="a" href={p.link}>
-              <Card className={classes.card}>
+            <CardActionArea component="a" href={p.link} disabled={p.disabled}>
+              <Card className={classes.card} style={
+                p.disabled ? {
+                  color: "grey"
+                } : null
+              }>
                 <div className={classes.cardDetails}>
                   <CardContent>
                     <Typography component="h2" variant="h5">
