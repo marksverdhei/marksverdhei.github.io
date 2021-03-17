@@ -48,7 +48,13 @@ export default function ProjectFeed(props) {
       {
         projectData.map(p => (
           <ListItem>
-            <CardActionArea component="a" href={p.link} disabled={p.disabled}>
+            <CardActionArea
+              component="a"
+              href={p.link}
+              rel="noreferrer"
+              target="_blank"
+              disabled={p.disabled}
+            >
               <Card className={classes.card} style={
                 p.disabled ? {
                   color: "grey"
